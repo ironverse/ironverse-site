@@ -1,7 +1,5 @@
 import { makeProxyRequest } from './wordpressApiClient';
 
-const FORMS_PATH = `/forms/v2/forms`;
-
 export function fetchForms(searchQuery = '', offset = 0, limit = 10) {
   const queryParams = {
     offset,
@@ -13,7 +11,9 @@ export function fetchForms(searchQuery = '', offset = 0, limit = 10) {
     queryParams.name__contains = searchQuery;
   }
 
-  return makeProxyRequest('get', FORMS_PATH, {}, queryParams).then(forms => {
+  const formsPath = `/forms/v2/forms`;
+
+  return makeProxyRequest('get', formsPath, {}, queryParams).then(forms => {
     const filteredForms = [];
 
     forms.forEach(currentForm => {
@@ -23,8 +23,4 @@ export function fetchForms(searchQuery = '', offset = 0, limit = 10) {
 
     return filteredForms;
   });
-}
-
-export function createForm(payload) {
-  return makeProxyRequest('post', FORMS_PATH, payload);
 }

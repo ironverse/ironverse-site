@@ -4,14 +4,13 @@ import UISpacer from '../../UIComponents/UISpacer';
 import AuthWrapper from '../../Auth/AuthWrapper';
 import PreviewForm from './PreviewForm';
 import FormSelect from './FormSelect';
-import FormGutenbergPreview from './FormGutenbergPreview';
 
 export default function FormBlockEdit({
   attributes,
   isSelected,
   setAttributes,
 }) {
-  const { formId, formName, preview } = attributes;
+  const { formId, formName } = attributes;
 
   const formSelected = portalId && formId;
 
@@ -22,10 +21,6 @@ export default function FormBlockEdit({
       formName: selectedForm.label,
     });
   };
-
-  if (preview) {
-    return <FormGutenbergPreview />;
-  }
 
   return (
     <Fragment>

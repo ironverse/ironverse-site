@@ -13,11 +13,6 @@ import {
   leadinDisconnectPortal,
   skipReview,
   skipSignup,
-  updateHublet,
-  getPortalHublet,
-  trackConsent,
-  disableInternalTracking,
-  fetchDisableInternalTracking,
 } from '../api/wordpressAjaxClient';
 
 import {
@@ -39,11 +34,6 @@ const methods = {
   makeInterframeProxyRequest,
   fetchOAuthToken,
   skipReview,
-  updateHublet,
-  getPortalHublet,
-  trackConsent,
-  disableInternalTracking,
-  fetchDisableInternalTracking,
 };
 
 const UNAUTHORIZED = 'unauthorized';

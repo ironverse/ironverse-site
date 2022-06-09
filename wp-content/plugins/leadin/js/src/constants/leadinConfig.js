@@ -16,7 +16,6 @@ const {
   pluginPath,
   ajaxNonce,
   restNonce,
-  routeNonce,
   redirectNonce,
   plugins,
   phpVersion,
@@ -31,8 +30,6 @@ const {
   portalDomain,
   leadinQueryParamsKeys,
   oauth,
-  trackConsent,
-  connectionStatus,
 } = window.leadinConfig;
 
 const i18n = window.leadinI18n;
@@ -56,7 +53,6 @@ export {
   pluginPath,
   ajaxNonce,
   restNonce,
-  routeNonce,
   redirectNonce,
   reviewSkippedDate,
   plugins,
@@ -71,6 +67,4 @@ export {
   portalDomain,
   leadinQueryParamsKeys,
   oauth,
-  trackConsent,
-  connectionStatus,
 };
