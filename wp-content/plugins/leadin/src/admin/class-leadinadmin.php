@@ -16,11 +16,7 @@ use Leadin\auth\OAuth;
 use Leadin\admin\api\RegistrationApi;
 use Leadin\admin\api\DisconnectApi;
 use Leadin\admin\api\SkipReviewApi;
-use Leadin\admin\api\UpdateHubletApi;
-use Leadin\admin\api\GetPortalHubletApi;
-use Leadin\admin\api\TrackConsentApi;
 use Leadin\admin\api\SearchHubSpotFormsApi;
-use Leadin\admin\api\DisableInternalTrackingApi;
 use Leadin\admin\utils\Background;
 use Leadin\utils\QueryParameters;
 use Leadin\utils\Versions;
@@ -54,15 +50,13 @@ class LeadinAdmin {
 		new RegistrationApi();
 		new DisconnectApi();
 		new SkipReviewApi();
-		new UpdateHubletApi();
-		new GetPortalHubletApi();
-		new TrackConsentApi();
-		new DisableInternalTrackingApi();
 		new PluginActionsManager();
 		new DeactivationForm();
 		new NoticeManager();
 		new AdminFilters();
-		new Gutenberg();
+		if ( Connection::is_connected() ) {
+			new Gutenberg();
+		}
 	}
 
 	/**

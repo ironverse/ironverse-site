@@ -72,7 +72,8 @@ class Links {
 	 * Get the parsed `leadin_route` from the query string.
 	 */
 	private static function get_iframe_route() {
-		$iframe_route = QueryParameters::get_param_array( 'leadin_route', 'hubspot-route' );
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$iframe_route = isset( $_GET['leadin_route'] ) ? wp_unslash( $_GET['leadin_route'] ) : array();
 		return is_array( $iframe_route ) ? $iframe_route : array();
 	}
 
@@ -80,7 +81,8 @@ class Links {
 	 * Get the parsed `leadin_search` from the query string.
 	 */
 	private static function get_iframe_search_string() {
-		return QueryParameters::get_param( 'leadin_search', 'hubspot-route' );
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		return isset( $_GET['leadin_search'] ) ? esc_url_raw( wp_unslash( '&' . $_GET['leadin_search'] ) ) : '';
 	}
 
 	/**
@@ -143,8 +145,8 @@ class Links {
 	 * Returns the url for the connection page
 	 */
 	private static function get_connection_src() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$portal_id = isset( $_GET['leadin_connect'] ) ? filter_var( wp_unslash( $_GET['leadin_connect'] ), FILTER_VALIDATE_INT ) : 0;
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+		$portal_id = filter_var( wp_unslash( $_GET['leadin_connect'] ), FILTER_VALIDATE_INT );
 		return LeadinFilters::get_leadin_base_url() . "/wordpress-plugin-ui/onboarding/connect?portalId=$portal_id&" . self::get_query_params();
 	}
 

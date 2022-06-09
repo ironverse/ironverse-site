@@ -3,4 +3,4 @@
 ## How to build
 
 - yarn install
-- yarn build
+- yarn start

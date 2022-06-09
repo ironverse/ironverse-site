@@ -43,7 +43,7 @@ class AdminConstants {
 	 */
 	private static function get_utm_query_params_array() {
 		$utm_params = array(
-			'utm_source' => 'wordpress-plugin',
+			'utm_source' => 'wordpress-install-page-int008-control',
 			'utm_medium' => 'marketplaces',
 		);
 
@@ -84,7 +84,6 @@ class AdminConstants {
 		$signup_params                         = array();
 		$signup_params['enableCollectedForms'] = 'true';
 		$signup_params['leadinPluginVersion']  = constant( 'LEADIN_PLUGIN_VERSION' );
-		$signup_params['trackConsent']         = AdminUserMetaData::get_track_consent();
 		$user_prefill_params                   = self::get_signup_prefill_params_array();
 		$signup_params                         = array_merge( $signup_params, $user_prefill_params );
 		return $signup_params;
@@ -108,8 +107,8 @@ class AdminConstants {
 			'ajaxUrl'      => Website::get_ajax_url(),
 			'nonce'        => self::get_connection_nonce(),
 			'accountName'  => AccountOptions::get_account_name(),
-			'hsdio'        => DeviceId::get(),
 			'portalDomain' => AccountOptions::get_portal_domain(),
+			'hsdio'        => DeviceId::get(),
 		);
 
 		$utm_params     = self::get_utm_query_params_array();
@@ -169,7 +168,6 @@ class AdminConstants {
 			'locale'                => get_locale(),
 			'ajaxNonce'             => wp_create_nonce( 'hubspot-ajax' ),
 			'restNonce'             => wp_create_nonce( 'wp_rest' ),
-			'routeNonce'            => wp_create_nonce( 'hubspot-route' ),
 			'hubspotNonce'          => self::get_connection_nonce(),
 			'redirectNonce'         => wp_create_nonce( Routing::REDIRECT_NONCE ),
 			'phpVersion'            => Versions::get_wp_version(),
@@ -185,7 +183,6 @@ class AdminConstants {
 			'theme'                 => get_option( 'stylesheet' ),
 			'wpVersion'             => Versions::get_wp_version(),
 			'leadinQueryParamsKeys' => array_keys( self::get_hubspot_query_params_array() ),
-			'connectionStatus'      => Connection::is_connected() ? 'Connected' : 'NotConnected',
 		);
 
 		if ( OAuth::is_enabled() ) {
@@ -225,7 +222,7 @@ class AdminConstants {
 	public static function get_leadin_i18n() {
 		return array(
 			'chatflows'            => __( 'Live Chat', 'leadin' ),
-			'selectExistingForm'   => __( 'Select an existing form or create a new one from a template', 'leadin' ),
+			'selectExistingForm'   => __( 'Select an existing form', 'leadin' ),
 			'goToPlugin'           => __( 'Go to plugin', 'leadin' ),
 			'refreshForms'         => __( 'Refresh forms', 'leadin' ),
 			'unauthorizedHeader'   => __( 'Your plugin isn\'t authorized', 'leadin' ),
@@ -235,12 +232,6 @@ class AdminConstants {
 			'selectForm'           => __( 'Select a form', 'leadin' ),
 			'formBlockTitle'       => __( 'HubSpot Form', 'leadin' ),
 			'formBlockDescription' => __( 'Select and embed a HubSpot form', 'leadin' ),
-			'registrationForm'     => __( 'Registration Form', 'leadin' ),
-			'contactUsForm'        => __( 'Contact us Form', 'leadin' ),
-			'newsletterForm'       => __( 'Newsletter sign-up Form', 'leadin' ),
-			'supportForm'          => __( 'Support Form', 'leadin' ),
-			'eventForm'            => __( 'Event Registration Form', 'leadin' ),
-			'templateForms'        => __( 'Templates', 'leadin' ),
 		);
 	}
 }
