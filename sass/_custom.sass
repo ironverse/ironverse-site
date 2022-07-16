@@ -1,0 +1,190 @@
+@mixin huge-size
+  font-size: 60px
+  
+@mixin header-size
+  font-size: 40px
+
+@mixin title-size
+  font-size: 34px
+
+@mixin medium-size
+  font-size: 28px
+
+@mixin regular-size
+  font-size: 20px
+
+@mixin small-size
+  font-size: 16px
+
+@mixin section-padding
+  padding: 5%
+
+$bgcolor1: #0A0A0C
+$bgcolor2: #232326
+$bgcolor3: #121215
+$textcolor1: #FFFFFF 
+$textcolor2: #D6D7D6
+
+$color1: #707070
+$color2: #191919
+
+$iconcolor: #A154D9
+
+@mixin desc-margin
+  margin-bottom: 40px
+
+
+#menu
+  position: absolute
+  width: 100%
+  
+  span,
+  a 
+    color: #ffffff
+
+p
+  color: $textcolor1
+  font-size: regular-size
+
+i
+  color: $iconcolor
+  @include title-size
+
+body
+  #home-part-1
+    background-image: url(cyber.jpg)
+    background-position: center
+    height: 100vh
+    @include section-padding
+
+    p
+      position: absolute
+      left: 50%
+      bottom: 20%
+      transform: translate(-50%, -50%)
+      @include header-size
+
+  #about-us
+    text-align: center
+    @include section-padding
+    background: $bgcolor1
+
+    p:nth-of-type(1)
+      @include title-size
+
+    p:nth-of-type(2)
+      color: $textcolor2
+
+  #services
+    @include section-padding
+    text-align: center
+    background: $bgcolor2
+
+    p:nth-of-type(1)
+      @include medium-size
+
+    p:nth-of-type(2)
+      color: $color1
+      @include desc-margin
+
+    .process-card
+      width: 400px
+
+      .inner-card
+        background: $color2
+        padding: 40px 10px
+
+  #process
+    @include section-padding
+    text-align: center
+    background: $bgcolor3
+
+    p:nth-of-type(1)
+      @include medium-size
+
+    .process-card
+      width: 400px
+
+      p:nth-of-type(1)
+        color: $textcolor2
+        @include medium-size
+
+  #focus
+    @include section-padding
+    text-align: center
+    background: $bgcolor1
+
+    p:nth-of-type(1)
+      @include medium-size
+
+    p:nth-of-type(2)
+      @include desc-margin
+
+    .process-card
+      width: 400px
+
+      .inner-card
+        background: $color2
+        padding: 40px 10px
+        height: 400px
+
+  #price
+    @include section-padding
+    text-align: center
+    background: $bgcolor2
+
+    p:nth-of-type(1),
+    p:nth-of-type(3)
+      @include title-size
+
+    p:nth-of-type(2)
+      border-bottom: 2px solid #FFF
+      width: 10%
+      margin: 3% auto
+
+  #offer
+    @include section-padding
+    background: $bgcolor3
+
+    .offer-name
+      width: 350px
+
+  
+footer
+  background: $bgcolor1
+  @include section-padding
+  position: relative
+
+  a
+    margin-right: 20px
+
+  i
+    font-size: 35px
+
+  #footer-nav
+    a
+      text-decoration: none
+
+  #up
+    position: absolute
+    right: 5vw
+    bottom: 5vh
+
+    i
+      @include huge-size
+
+
+
+
+// .size-2 {
+//   font-size: 20px;
+// }
+
+// .size-3 {
+//   font-size: 24px;
+// }
+
+// .size-4 {
+//   font-size: 28px;
+// }
+
