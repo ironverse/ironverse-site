@@ -1,0 +1,23 @@
+{% import 'macros/head.html' as macros_head %}
+{% import 'macros/header.html' as macros_header %}
+{% import 'macros/footer.html' as macros_footer %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ macros_head::stylesheet() }}
+    {{ macros_head::head() }}
+  </head>
+
+  <body>
+    <!-- <script type="text/javascript" src="{{ get_url(path="bootstrap.bundle.min.js") | safe }}" defer crossorigin="anonymous"></script> -->
+    {% block header %}
+      {{ macros_header::header(current_section="/") }}
+    {% endblock header %}
+    {% block content %} {% endblock %}
+
+    {% block footer %}
+      {{ macros_footer::footer() }}
+    {% endblock footer %}
+  </body>
+</html>

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set main_path = "_index.md" %}
+{% set mainsec = get_section(path=main_path) %}
+
+
+<div id="home-part-1">
+  <p>Technology Meets Business</p>
+</div>
+
+<div id="about-us">
+  <p>{{ mainsec.extra.about }}</p>
+  <p>{{ mainsec.extra.desc }}</p>
+  <button>{{ mainsec.extra.button }}</button>
+</div>
+
+<div id="services">
+  <p>Virtual Services</p>
+  <p>If it can be done on a computer then it can be outsourced!</p>
+  <div class="container">
+    <div class="row justify-content-md-center gx-5 gy-5">
+      {% for val in mainsec.extra.menu.service %}
+      <div class="col-{breakpoint}-auto process-card">
+        <div class="inner-card">
+          <i class="{{ val.icon }}"></i>
+          <p>{{ val.title }}</p>
+          <p>{{ val.desc }}</p>
+        </div>
+        
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+<div id="process">
+  <p>HOW IT WORKS</p>
+  <div class="container">
+    <div class="row justify-content-md-center gx-5 gy-5">
+      
+      {% set main_path = "_index.md" %}
+      {% set mainsec = get_section(path=main_path) %}
+      {% for val in mainsec.extra.menu.process %}
+      <div class="col-{breakpoint}-auto process-card">
+        <i class="{{ val.icon }}"></i>
+        <p>{{ val.title }}</p>
+        <p>{{ val.desc }}</p>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+<div id="focus">
+  <p>Our Focus</p>
+  <p>If it can be done on a computer then it can be outsourced!</p>
+  <div class="container">
+    <div class="row justify-content-md-center gx-5 gy-5">
+      
+      {% set main_path = "_index.md" %}
+      {% set mainsec = get_section(path=main_path) %}
+      {% for val in mainsec.extra.menu.focus %}
+      <div class="col-{breakpoint}-auto process-card">
+        <div class="inner-card">
+          <i class="{{ val.icon }}"></i>
+          <p>{{ val.title }}</p>
+          <p>{{ val.desc }}</p>
+        </div>
+        
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+<div id="price">
+  <p>{{ mainsec.extra.price_starts }}</p>
+  <p></p>
+  <p>{{ mainsec.extra.pricing }}</p>
+  <p>{{ mainsec.extra.price_desc }}</p>
+</div>
+
+
+<div id="offer">
+  <div class="container">
+    {% set main_path = "_index.md" %}
+    {% set mainsec = get_section(path=main_path) %}
+
+    <div class="row">
+    {% for val in mainsec.extra.menu.offer %}
+    
+      <div class="col">
+        <p class="offer-name">* {{ val.name }}</p>
+      </div>
+
+    {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock content %}
+
+
